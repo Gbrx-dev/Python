@@ -1,7 +1,8 @@
 import json
 import os
+from abc import ABC
 
-class AbstractCrud:
+class AbstractCrud(ABC):
     def detalhar(self):
         data = self.__dict__.copy()
         if "arquivo" in data:
@@ -16,6 +17,14 @@ class AbstractCrud:
             json.dump(lista, file, indent=4)
         print('Registro cadastrado com sucesso')
 
+    def alterar(self, item): 
+        lista = self.consultar()
+        lista[item] = self.detalhar()
+        os.makedirs(os.path.dirname(self.arquivo), exist_ok=True)
+        with open(self.arquivo, 'w') as file:
+            json.dump(lista, file, indent=4)
+        print('Registro alterado com sucesso')
+
     @classmethod
     def listarTodos(cls):
         lista = cls.consultar()
@@ -23,9 +32,12 @@ class AbstractCrud:
             print(f"{i} - {p}")
 
     @classmethod
-    def consultar(cls):
+    def consultar(cls, item=None):
         try:
             with open(cls.arquivo) as file:
-                return json.load(file)
+                lista = json.load(file)
+                if item is not None:
+                    return lista[item]
+                return lista
         except Exception:
             return []
