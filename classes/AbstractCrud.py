@@ -13,17 +13,28 @@ class AbstractCrud(ABC):
         lista = self.consultar()
         lista.append(self.detalhar())
         os.makedirs(os.path.dirname(self.arquivo), exist_ok=True)
-        with open(self.arquivo, 'w') as file:
-            json.dump(lista, file, indent=4)
-        print('Registro cadastrado com sucesso')
+        self.__gravarArquivo()
 
     def alterar(self, item): 
         lista = self.consultar()
         lista[item] = self.detalhar()
         os.makedirs(os.path.dirname(self.arquivo), exist_ok=True)
+        self.__gravarArquivo()
+
+    def __gravarArquivo(self, lista):
         with open(self.arquivo, 'w') as file:
             json.dump(lista, file, indent=4)
-        print('Registro alterado com sucesso')
+        print('Operação realizada com sucesso')
+
+    @classmethod
+    def excluir(cls, item):
+        lista = cls.consultar()
+        del lista[item] 
+         
+        with open(cls.arquivo, 'w') as file:
+            json.dump(lista, file, indent=4)
+        print('Operação realizada com sucesso')
+
 
     @classmethod
     def listarTodos(cls):

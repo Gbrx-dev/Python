@@ -1,11 +1,16 @@
 from classes.Produto import Produto
 from classes.Categoria import Categoria
 
-item = 1
+
+Produto.excluir(0)
+
+
+
+""" item = 1
 itemAlterar = Produto.consultar(item)
 
 produto = Produto(itemAlterar['codigo'], itemAlterar['nome'], 1000, 2000)
-produto.alterar(item)
+produto.alterar(item) """
 
 """ if __name__ == "__main__":
     Produto.listarTodos()
