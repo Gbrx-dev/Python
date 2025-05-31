@@ -1,14 +1,8 @@
 [
     {
-        "codigo": "010",
-        "nome": "Mouse",
-        "quantidade": 1000,
-        "valor": 2000
-    },
-    {
-        "codigo": "100",
-        "nome": "Camiseta",
-        "quantidade": 90,
-        "valor": 49
+        "codigo": "001",
+        "nome": "short",
+        "quantidade": "19",
+        "valor": "12"
     }
 ]

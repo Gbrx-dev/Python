@@ -1,24 +1,39 @@
 from classes.Produto import Produto
-from classes.Categoria import Categoria
 
+def menu():
+    print()
+    print("1- Listar Produtos")
+    print("2- Inserir Produtos")
+    print("3- Alterar Produtos")
+    print("4- Excluir Produtos")
+    print("0- Sair")
+    print()
 
-Produto.excluir(0)
+opcao = 1 
 
+while opcao != 0:
 
+    menu()
+    opcao = int(input('Escolha uma opção: '))
 
-""" item = 1
-itemAlterar = Produto.consultar(item)
+    match opcao:
+        case 1:
+            print()
+            print("********************************************************************************************")
+            Produto.listarTodos()
+            print("********************************************************************************************")
 
-produto = Produto(itemAlterar['codigo'], itemAlterar['nome'], 1000, 2000)
-produto.alterar(item) """
+        case 2:
+            codigo = input('Digite o código: ')
+            nome = input('Digite o nome: ')
+            quantidade = input('Digite a quantidade: ')
+            valor = input('Digite o valor: ')
 
-""" if __name__ == "__main__":
-    Produto.listarTodos()
+            produto = Produto(codigo, nome, quantidade, valor)
+            produto.inserir()
 
-    produto = Produto('100', 'Camiseta', 90, 49)
-    produto.inserir()
-    Produto.listarTodos()
+        case 3:
+            ...
 
-    categoria = Categoria('Roupa')
-    categoria.inserir()
- """
+        case 4:
+            ...
