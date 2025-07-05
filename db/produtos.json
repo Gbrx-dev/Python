@@ -4,5 +4,11 @@
         "nome": "short",
         "quantidade": "19",
         "valor": "12"
+    },
+    {
+        "codigo": "",
+        "nome": "",
+        "quantidade": 12,
+        "valor": 1
     }
 ]

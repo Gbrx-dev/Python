@@ -33,7 +33,14 @@ while opcao != 0:
             produto.inserir()
 
         case 3:
-            ...
+            Produto.listarTodos()
+            selecionado = int(input('Qual item deseja alterar? '))
+            item = Produto.consultar(selecionado)
 
+            quantidade = int(input('Qual a nova Quantidade? '))
+            valor = int(input('Qual o novo Valor? '))
+
+            produto = Produto(item["codigo"], item["nome"], quantidade, valor)
+            produto.alterar(selecionado)
         case 4:
             ...
