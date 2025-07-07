@@ -43,4 +43,10 @@ while opcao != 0:
             produto = Produto(item["codigo"], item["nome"], quantidade, valor)
             produto.alterar(selecionado)
         case 4:
-            ...
+            Produto.listarTodos()
+            selecionado = int(input('Qual item deseja Excluir? '))
+
+            Produto.excluir(selecionado)
+print()
+
+print('Até a próxima!')
